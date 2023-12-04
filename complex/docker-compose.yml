@@ -19,8 +19,8 @@ services:
       dockerfile: Dockerfile.dev
       context: ./server
     volumes:
-      - /app/node_modules # do not copy this folder
-      - ./server:/app
+      - /home/node/app/node_modules # do not copy this folder
+      - ./server:/home/node/app
     environment:
       - REDIS_HOST=redis
       - REDIS_PORT=6379
@@ -35,8 +35,8 @@ services:
       dockerfile: Dockerfile.dev
       context: ./client
     volumes:
-      - /app/node_modules
-      - ./client:/app
+      - /home/node/app/node_modules
+      - ./client:/home/node/app
     environment:
       - WDS_SOCKET_PORT=0
   worker:
@@ -44,8 +44,8 @@ services:
       dockerfile: Dockerfile.dev
       context: ./worker
     volumes:
-      - /app/node_modules
-      - ./worker:/app
+      - /home/node/app/node_modules
+      - ./worker:/home/node/app
     environment:
       - REDIS_HOST=redis
       - REDIS_PORT=6379
