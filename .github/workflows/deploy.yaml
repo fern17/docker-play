@@ -31,7 +31,7 @@ jobs:
           aws_access_key: $${{ secrets.AWS_ACCESS_KEY }}
           aws_secret_key: $${{ secrets.AWS_SECRET_KEY }}
           application_name: docker-complex
-          environment_name: docker-complex-env
+          environment_name: Docker-complex-env
           existing_bucket_name: elasticbeanstalk-us-east-1-302460674013
           region: us-east-1
           version_label: ${{ github.sha }}
