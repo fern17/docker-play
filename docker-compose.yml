@@ -1,11 +1,11 @@
 version: '3'
 services:
   client:
-    image: "fern17/multi-client-10-14"
+    image: 'fern17/multi-client-10-14'
     mem_limit: 128m
     hostname: client
   server:
-    image: "fern17/multi-server-10-14"
+    image: 'fern17/multi-server-10-14'
     mem_limit: 128m
     hostname: api
     environment:
@@ -15,19 +15,18 @@ services:
       - PGHOST=$PGHOST
       - PGDATABASE=$PGDATABASE
       - PGPASSWORD=$PGPASSWORD
-#      - POSTGRES_PASSWORD=postgres_password
       - PGPORT=$PGPORT
   worker:
-    image: "fern17/multi-worker-10-14"
+    image: 'fern17/multi-worker-10-14'
     mem_limit: 128m
     hostname: worker
     environment:
       - REDIS_HOST=$REDIS_HOST
       - REDIS_PORT=$REDIS_PORT
   nginx:
-    image: "fern17/multi-nginx-10-14"
+    image: 'fern17/multi-nginx-10-14'
     mem_limit: 128m
     hostname: nginx
     ports:
-      - "3050:80"
+      - '80:80'
 
