@@ -1,0 +1,38 @@
+{
+    "AWSEBDockerrunVersion": 2,
+    "containerDefinitions": [
+        {
+            "name": "client",
+            "image": "fern17/multi-client-10-14",
+            "hostname": "client",
+            "memory": 128,
+            "essential": false
+        },
+        {
+            "name": "server",
+            "image": "fern17/multi-server-10-14",
+            "hostname": "api",
+            "memory": 128,
+            "essential": false
+        },
+        {
+            "name": "worker",
+            "image": "fern17/multi-worker-10-14",
+            "memory": 128,
+            "essential": false
+        },
+        {
+            "name": "nginx",
+            "image": "fern17/multi-nginx-10-14",
+            "memory": 128,
+            "essential": true,
+            "portMappings": [
+                {
+                    "hostPort": 80,
+                    "containerPort": 80
+                }
+            ],
+            "links": ["client", "server"]
+        }
+    ]
+}
